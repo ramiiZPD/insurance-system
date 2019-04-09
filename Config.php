@@ -1,5 +1,5 @@
 <?php
-   define('DB_SERVER', 'localhost:3306');
+   define('DB_SERVER', 'localhost');
    define('DB_USERNAME', 'phpmyadminuser');
    define('DB_PASSWORD', 'password');
    define('DB_DATABASE', 'insurance-system');
