@@ -12,11 +12,11 @@
     <div id="header">
         <div>
             <div id="logo">
-                <a href="login.html"><img src="images/up.png" alt="LOGO" width="119" height="119"></a>
+                <a href="index.php"><img src="images/up.png" alt="LOGO" width="119" height="119"></a>
             </div>
             <ul id="navigation">
                 <li class="selected">
-                    <a href="index.html">Home</a>
+                    <a href="home.php">Home</a>
                 </li>
                 <li>
                     <a href="client.html">Client</a>
@@ -25,7 +25,7 @@
                     <a href="new-client.html">New Client</a>
                 </li>
                 <li>
-                    <a href="management.html">Users</a>
+                    <a href="user.php">Users</a>
                 </li>
                 <li>
                     <a href="evaluation.html">Evaluation</a>

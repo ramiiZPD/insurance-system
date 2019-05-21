@@ -1,3 +1,6 @@
+<?php
+  require_once('Config.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +35,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-50 p-b-90">
-				<form class="login100-form validate-form flex-sb flex-w">
+				<form method="post" action="login.php" class="login100-form validate-form flex-sb flex-w">
 					<span class="login100-form-title p-b-51">
 						Login
 					</span>
@@ -45,32 +48,59 @@
 					
 					
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input class="input100" type="password" name="password" placeholder="Password">
 						<span class="focus-input100"></span>
 					</div>
-					
-					<div class="flex-sb-m w-full p-t-3 p-b-24">
-						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								Remember me
-							</label>
-						</div>
-
-						<!-- <div>
-							<a href="#" class="txt1">
-								Forgot?
-							</a>
-						</div> -->
-					</div>
-
+				
 					<div class="container-login100-form-btn m-t-17">
-						<button onclick="location.href='index.html'"  class="login100-form-btn">
+						<button type="submit" name="login_user"  class="login100-form-btn">
 							Login
 						</button>
 					</div>
 
+					<div>
+						<?php
+						$errors = 0;
+
+						if (isset($_POST['login_user'])) {
+
+						$username = $_POST['username'];
+						$password = $_POST['password'];
+						
+			
+						if (empty($username)) {
+							$errors++;
+							echo '<p style="color:red;padding:0px">Username is required</p>';
+						}
+
+						if (empty($password)) {
+							$errors++;
+							echo '<p style="color:red;padding:0px">Password is required</p>';
+						}
+
+
+						if ($errors == 0) {
+							$password_val = md5($password);
+							$query = "SELECT * FROM users WHERE email='$username' AND password='$password_val'";
+							$results = mysqli_query($db, $query);
+						
+							if (mysqli_num_rows($results) == 1) {
+							$_SESSION['username'] = $username;
+							$_SESSION['success'] = "You are now logged in";
+							header('location: home.php');
+							}else {
+								echo '<p style="color:red;padding:0px">Wrong username/password combination</p>';
+							}
+						}
+						}
+
+						?>
+						
+
+					</div>
+
 				</form>
+
 			</div>
 		</div>
 	</div>
