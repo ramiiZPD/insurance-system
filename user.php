@@ -37,7 +37,7 @@
                     <a href="user.php">Users</a>
                 </li>
                 <li>
-                    <a href="evaluation.html">Branches</a>
+                    <a href="branch.php">Branches</a>
                 </li>
             </ul>
         </div>
@@ -128,10 +128,24 @@
                             $query = "INSERT INTO users (firstname, lastname,email, password) 
                             VALUES('$firstname','$lastname', '$email', '$password')";
                             mysqli_query($db, $query);
-                            echo '<p style="color:blue;padding:0px">Record Added Successfully</p>';
+              
+                            echo "<div class='alert alert-success'>Record Added Successfully</div>";
                           }
                           
                         }
+
+                        if( isset($_POST['delete'])){
+
+                          $sql = "DELETE FROM users WHERE id=" . $_POST['userid'];
+                      
+                          if($db->query($sql) === TRUE){
+                      
+                              echo "<div class='alert alert-success'>Successfully delete user</div>";
+                      
+                          }
+                      
+                      }
+
                       ?>
                     </div>
 
@@ -148,6 +162,7 @@
                               <th>Email</th>
                               <th>First Name</th>
                               <th>Last Name</th>
+                              <th>Delete</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -158,11 +173,15 @@
 
                             while($row = mysqli_fetch_array($result))
                             {
-                            echo "<tr>";
-                            echo "<td>" . $row['email'] . "</td>";
-                            echo "<td>" . $row['lastname'] . "</td>";
-                            echo "<td>" . $row['lastname'] . "</td>";
-                            echo "</tr>";
+                              echo "<form action='' method='POST'>";
+                              echo "<input type='hidden' value='". $row['id']."' name='userid' />";
+                              echo "<tr>";
+                              echo "<td>" . $row['email'] . "</td>";
+                              echo "<td>" . $row['lastname'] . "</td>";
+                              echo "<td>" . $row['lastname'] . "</td>";
+                              echo "<td><input type='submit' name='delete' value='Delete' class='btn btn-danger' /></td>";
+                              echo "</tr>";
+                              echo "</form>";
                             }
                           
                             ?>
@@ -170,6 +189,11 @@
                           
                           </tbody>
                         </table>
+
+                       
+
+
+
                       </div>
            
           </div>

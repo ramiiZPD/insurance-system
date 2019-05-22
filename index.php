@@ -35,7 +35,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-50 p-b-90">
-				<form method="post" action="login.php" class="login100-form validate-form flex-sb flex-w">
+				<form method="post" action="index.php" class="login100-form validate-form flex-sb flex-w">
 					<span class="login100-form-title p-b-51">
 						Login
 					</span>
