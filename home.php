@@ -25,16 +25,16 @@
                     <a href="home.php">Home</a>
                 </li>
                 <li>
-                    <a href="client.html">Client</a>
+                    <a href="client.php">Client</a>
                 </li>
                 <li>
-                    <a href="new-client.html">New Client</a>
+                    <a href="new-client.php">New Client</a>
                 </li>
                 <li>
                     <a href="user.php">Users</a>
                 </li>
                 <li>
-                    <a href="branch.php">Evaluation</a>
+                    <a href="branch.php">Branches</a>
                 </li>
             </ul>
         </div>

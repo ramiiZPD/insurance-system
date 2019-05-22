@@ -2,7 +2,6 @@
   require_once('Config.php');
 ?>
 <!DOCTYPE html>
-<!-- Website template by freewebsitetemplates.com -->
 <html>
 
 <head>
@@ -28,10 +27,10 @@
                     <a href="home.php">Home</a>
                 </li>
                 <li>
-                    <a href="client.html">Client</a>
+                    <a href="client.php">Client</a>
                 </li>
                 <li>
-                    <a href="new-client.html">New Client</a>
+                    <a href="new-client.php">New Client</a>
                 </li>
                 <li class="selected">
                     <a href="user.php">Users</a>

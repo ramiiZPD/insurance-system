@@ -2,7 +2,6 @@
   require_once('Config.php');
 ?>
 <!DOCTYPE html>
-<!-- Website template by freewebsitetemplates.com -->
 <html>
 
 <head>
@@ -28,10 +27,10 @@
                     <a href="home.php">Home</a>
                 </li>
                 <li>
-                    <a href="client.html">Client</a>
+                    <a href="client.php">Client</a>
                 </li>
                 <li>
-                    <a href="new-client.html">New Client</a>
+                    <a href="new-client.php">New Client</a>
                 </li>
                 <li>
                     <a href="user.php">Users</a>
@@ -89,14 +88,14 @@
                             echo '<p style="color:red;padding:0px">Please enter valid Address</p>';
                           }
 
-                          if(!preg_match("/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/", $telno)) {
+                          if (empty($telno)) {
                             $errors++;
-                            echo '<p style="color:red;padding:0px">Please enter Telephone Number</p>';
+                            echo '<p style="color:red;padding:0px">Please enter Valid Telephone Number</p>';
+
+                            
                           }
 
-
                           if($errors == 0) {
-
                             $query = "INSERT INTO branches (name, address, telno) 
                             VALUES('$name','$address', '$telno')";
                             mysqli_query($db, $query);
